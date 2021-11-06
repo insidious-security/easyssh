@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:unstable-slim
 
 COPY easyssh.sh /app/
 
