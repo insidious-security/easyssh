@@ -5,6 +5,7 @@
   <img src="https://img.shields.io/github/license/insidious-security/easyssh?style=for-the-badge">
   <img src="https://img.shields.io/github/all-contributors/insidious-security/easyssh?style=for-the-badge">
 </p>
+
 ## The Repository
 
 This is a script that sets up a secure docker container, creates a single username and password, which you can share easily.
