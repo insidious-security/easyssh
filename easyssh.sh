@@ -2,7 +2,7 @@
 
 printf "\n"
 sleep 0.8
-printf "Author: sidious \n"
+printf "Authors: sidious, pimvandenbroek \n"
 sleep 0.8
 printf "Easy SSH File Transfer Script: \n"
 sleep 0.8
