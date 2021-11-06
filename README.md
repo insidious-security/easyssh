@@ -1,8 +1,10 @@
 # easyssh
 
-[![License](https://img.shields.io/github/license/insidious-security/easyssh)](https://github.com/insidious-security/easyssh/blob/main/LICENSE "License")
-[![Gists Badge](https://badges.pufler.dev/updated/insidious-security/easyssh)](https://badges.pufler.dev)
-
+<p align="center">
+  <img src="https://img.shields.io/github/last-commit/insidious-security/easyssh.svg?style=for-the-badge">
+  <img src="https://img.shields.io/github/license/insidious-security/easyssh?style=for-the-badge">
+  <img src="https://img.shields.io/github/all-contributors/insidious-security/easyssh?style=for-the-badge">
+</p>
 ## The Repository
 
 This is a script that sets up a secure docker container, creates a single username and password, which you can share easily.
