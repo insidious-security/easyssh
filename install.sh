@@ -1,6 +1,10 @@
-echo "Creating container"
+#!/bin/bash
+
+printf "\n"
+printf "Creating container..\n"
 docker build -t easyssh . > /dev/null 2>&1
-echo "Starting container, running config"
+printf "Starting container, running config.\n"
 docker run -dit --name easyssh -p 2107:22 easyssh:latest /bin/bash > /dev/null 2>&1
-docker logs --follow easyssh 
+timeout 25s docker logs --follow easyssh 
+printf "\n"
 
