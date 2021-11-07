@@ -47,6 +47,7 @@ sshdcop(){
     MaxAuthTries 5
     ClientAliveInterval 900
     ClientAliveCountMax 0
+    Subsystem sftp internal-sftp
     UsePAM yes
     HostKey /etc/ssh/ssh_host_ed25519_key
     HostKey /etc/ssh/ssh_host_rsa_key
@@ -95,7 +96,7 @@ setperm(){
 
 createuser(){   
   USNA="$(echo $RANDOM | md5sum | head -c 4; echo)" 
-  useradd -m $USNA
+  useradd -m -s /bin/bash $USNA
   DAT="$(date +%s | sha256sum | base64 | head -c 32 ; echo)"
   echo $USNA:$DAT | chpasswd
 }
