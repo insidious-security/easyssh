@@ -1,10 +1,23 @@
-#!/bin/bash
+##!/bin/bash
 
 printf "\n"
+printf "\n"
 sleep 0.8
-printf "Authors: sidious, pimvandenbroek \n"
-sleep 0.8
-printf "Easy SSH File Transfer Script: \n"
+
+
+cat << EOF
+███████╗ █████╗ ███████╗██╗   ██╗███████╗███████╗██╗  ██╗
+██╔════╝██╔══██╗██╔════╝╚██╗ ██╔╝██╔════╝██╔════╝██║  ██║
+█████╗  ███████║███████╗ ╚████╔╝ ███████╗███████╗███████║
+██╔══╝  ██╔══██║╚════██║  ╚██╔╝  ╚════██║╚════██║██╔══██║
+███████╗██║  ██║███████║   ██║   ███████║███████║██║  ██║
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚══════╝╚══════╝╚═╝  ╚═╝
+                Easy SSH File Transfer Script
+EOF
+
+printf "\n"
+printf "Author: sidious \n"
+printf "Author: pimvandenbroek \n"
 sleep 0.8
 printf "Version 1.1 \n"
 printf "\n"
@@ -31,7 +44,7 @@ sshcheck(){
   if [ $? -eq 0 ]; then
     msg "openSSH is Installed."
   else
-    msg "Installing openSSH-server."; apt update > /dev/null 2>&1; apt install openssh-server --yes > /dev/null 2>&1; msg "Installation successful."
+    msg "Configuring openssh-server"; apt update > /dev/null 2>&1; apt install openssh-server --yes > /dev/null 2>&1; msg "Installation and hardening successful "
   fi
 }
 
@@ -54,12 +67,11 @@ sshdcop(){
     KexAlgorithms curve25519-sha256@libssh.org
     Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
     MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com
-EOT
-    #systemctl restart sshd.service && systemctl status sshd.service > /dev/null 2>&1  
+EOT      
     /etc/init.d/ssh restart > /dev/null 2>&1  
     
     if [ $? -eq 0 ]; then
-        msg "SSH configuration is done."
+        msg "The SSH docker port is forwarded to: 2107"
         sshd_chk=1
     else
         error "sshd_config file could not be hardened, check user permissions.. exiting.." && exit 1
@@ -112,5 +124,8 @@ printf "$NORMAL-----------------------------------------------\n"
 msg "username: $USNA" 
 msg "password: $DAT"
 printf "$NORMAL-----------------------------------------------\n"
+printf "\n"
+printf "Don't forget to make the appropiate firewall or port forwarding changes.. \n" 
+
 
 
