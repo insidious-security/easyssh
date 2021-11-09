@@ -1,4 +1,4 @@
-##!/bin/bash
+#!/bin/bash
 
 printf "\n"
 printf "\n"
@@ -126,6 +126,3 @@ msg "password: $DAT"
 printf "$NORMAL-----------------------------------------------\n"
 printf "\n"
 printf "Don't forget to make the appropiate firewall or port forwarding changes.. \n" 
-
-
-
