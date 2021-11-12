@@ -108,7 +108,7 @@ setperm(){
 
 
 createuser(){   
-  USNA="$(echo $RANDOM | md5sum | head -c 4; echo)" 
+  USNA="$(date +%s | md5sum | head -c 4; echo)" 
   useradd -m -s /bin/bash $USNA
   DAT="$(date +%s | sha256sum | base64 | head -c 32 ; echo)"
   echo $USNA:$DAT | chpasswd
