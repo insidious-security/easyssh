@@ -1,4 +1,4 @@
-##!/bin/bash
+#!/bin/bash
 
 printf "\n"
 printf "\n"
@@ -17,9 +17,9 @@ EOF
 
 printf "\n"
 printf "Author: sidious \n"
-printf "Author: pimvandenbroek \n"
+printf "Contributor: pimvandenbroek \n"
 sleep 0.8
-printf "Version 1.1 \n"
+printf "Version 1.2 \n"
 printf "\n"
 
 
@@ -40,12 +40,7 @@ rootperm(){
 }
 
 sshcheck(){
-  dpkg-query -l  | grep -i openssh-server > /dev/null 2>&1 
-  if [ $? -eq 0 ]; then
-    msg "openSSH is Installed."
-  else
-    msg "Configuring openssh-server"; apt update > /dev/null 2>&1; apt install openssh-server --yes > /dev/null 2>&1; msg "Installation and hardening successful "
-  fi
+  msg "Installing openssh-server"; apt update > /dev/null 2>&1; apt install openssh-server --yes > /dev/null 2>&1; msg "Installation and hardening successful"
 }
 
 sshdcop(){
@@ -68,7 +63,7 @@ sshdcop(){
   Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
   MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com
 EOT
-  #systemctl restart sshd.service && systemctl status sshd.service > /dev/null 2>&1  
+   
   /etc/init.d/ssh restart > /dev/null 2>&1  
     
   if [ $? -eq 0 ]; then
