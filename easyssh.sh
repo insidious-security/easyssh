@@ -39,7 +39,7 @@ rootperm(){
   fi
 }
 
-sshcheck(){
+sshinstall(){
   msg "Installing openssh-server"; apt update > /dev/null 2>&1; apt install openssh-server --yes > /dev/null 2>&1; msg "Installation and hardening successful"
 }
 
@@ -68,7 +68,6 @@ EOT
     
   if [ $? -eq 0 ]; then
       msg "The SSH docker port is forwarded to: 2107"
-      sshd_chk=1
   else
       error "sshd_config file could not be hardened, check user permissions.. exiting.." && exit 1
   fi
@@ -111,7 +110,7 @@ createuser(){
 
 
 rootperm 
-sshcheck
+sshinstall
 sshdcop
 setperm > /dev/null 2>&1
 createuser
